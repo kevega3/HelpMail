@@ -1,0 +1,154 @@
+.Contaider{
+    height:30vh;
+    width: 100%;
+    background: #dddddd98;
+
+    position: relative;
+}
+body{
+    box-sizing: content-box;
+    box-sizing: border-box;
+    padding: 0px;
+    margin:0px;
+}
+@media only screen and (max-width: 90000px) and (min-width: 893px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+        left: 5%;
+    }
+    .TitlesWelcome{
+        position: absolute;
+        right: 10%;
+        top:5%;
+        padding-right: 20px;
+    
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 35px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 20px;
+    }
+    .title2{
+        font-size: 20px;
+    }
+
+}
+@media only screen and (max-width: 893px) and (min-width: 555px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+     
+    }
+    .TitlesWelcome{
+        position: absolute;
+        right:0;
+        top:15%;
+        padding-right: 20px;
+    
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 15px;
+    }
+    .title2{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 555px) and (min-width: 1px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+     
+    }
+    .TitlesWelcome{
+        position: absolute;
+        left:5%;
+        top:100%;
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 15px;
+    }
+    .title2{
+        font-size: 15px;
+    }
+    .ConBtons{
+        padding-top: 20vh;
+    }
+}
+
+.contenedorVistaPrevia{
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+}
+
+.btnEnviar{
+    background: #76C35E;
+    padding: 10px 35%;
+    color: white;
+    border: solid 2px #76C35E;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-weight: bold;
+}
+.btnEnviar:hover{
+    background: #468533;
+    border: solid 2px #3a7528;
+}
+.TitulosFinal{
+    color:#0082CA;
+    font-weight: bold;
+}
+
+
+/* Removes the clear button from date inputs */
+input[type="datetime-local"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="datetime-local"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="datetime-local"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    border-radius:10px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="datetime-local"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}

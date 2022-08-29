@@ -1,0 +1,213 @@
+::-webkit-scrollbar {
+    display: none;
+}
+.Contaider{
+    height:30vh;
+    width: 100%;
+    background: #dddddd98;
+
+    position: relative;
+}
+body{
+    box-sizing: content-box;
+    box-sizing: border-box;
+    padding: 0px;
+    margin:0px;
+}
+@media only screen and (max-width: 90000px) and (min-width: 893px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+        left: 5%;
+    }
+    .TitlesWelcome{
+        position: absolute;
+        right: 10%;
+        top:5%;
+        padding-right: 20px;
+    
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 35px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 20px;
+    }
+    .title2{
+        font-size: 20px;
+    }
+
+}
+@media only screen and (max-width: 893px) and (min-width: 555px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+     
+    }
+    .TitlesWelcome{
+        position: absolute;
+        right:0;
+        top:15%;
+        padding-right: 20px;
+    
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 15px;
+    }
+    .title2{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 555px) and (min-width: 1px)  {
+    .ADA{
+        width:40vh ;
+        position: absolute;
+     
+    }
+    .TitlesWelcome{
+        position: absolute;
+        left:5%;
+        top:100%;
+    }
+    .title1{
+        color: #0082CA;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .helpmail{
+        color: #0082CA;
+        font-size: 15px;
+    }
+    .title2{
+        font-size: 15px;
+    }
+    .ConBtons{
+        padding-top: 20vh;
+    }
+}
+
+
+.btns{
+    border: solid 4px none;
+    border-radius: 20px;
+    margin: 30px;
+    color: white;
+    text-decoration: none;
+    width: 300px;
+    height: 200px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: .9s;
+}
+.btns1{
+    background:  #0097CE;
+}
+
+.btns1:hover{
+    background:  #046588;
+}
+.btns2{
+    background:  #A1007D;
+}
+.btns3{
+    background:  #0508ad;
+}
+.btns3:hover{
+    background:  #01034e;
+}
+
+.btns4{
+    background:  #5c6459;
+}
+.btns4:hover{
+    background:  #30352f;
+}
+
+
+.btns2:hover{
+    background:  #6e0257;
+}
+.icon{
+    font-size: 70px;
+    
+}
+.menu {
+    display: flex;
+    justify-content: center;
+  }
+  .menu a span:first-child {
+    display: inline-block;
+    
+  }
+  .menu a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .icons{
+      font-size: 50px;
+  }
+  .menu a span:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+  }
+  .menu a span {
+    transition: transform 0.2s ease-out;
+  }
+  .menu a:hover span:first-child {
+    transform: translateY(100%);
+  }
+  
+  .menu a:hover span:last-child {
+    transform: none;
+  }
+  .menu[data-animation="to-top"] a span:last-child {
+    transform: translateY(100%);
+  }
+  
+  .menu[data-animation="to-top"] a:hover span:first-child {
+    transform: translateY(-100%);
+  }
+  
+  .menu[data-animation="to-right"] a span:last-child {
+    transform: translateX(-100%);
+  }
+  
+  .menu[data-animation="to-right"] a:hover span:first-child {
+    transform: translateX(100%);
+  }
+  
+  .menu[data-animation="to-left"] a span:last-child {
+    transform: translateX(100%);
+  }
+  
+  .menu[data-animation="to-left"] a:hover span:first-child {
+    transform: translateX(-100%);
+  }
+  .menu li{
+    list-style:none;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+  
+
+  

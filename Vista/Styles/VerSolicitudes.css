@@ -1,0 +1,36 @@
+.TitleSoli{
+    padding: 10px;
+    display: inline-flex;
+}
+.TitleSoli img{
+    
+    padding-bottom: 10px;
+}
+.TitleSoli h1{
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+
+.Buscar{
+    border-radius: 5px;
+    padding: 10px;
+    background: #c2c2c2;
+    border: solid 1px #c2c2c2;
+    transition: 0.2s;
+    color: white;
+}
+
+
+.Buscar:hover{
+    border-radius: 5px;
+    border:#aaaaaa;
+    background: #aaaaaa;
+    border: solid 1px #c2c2c2;
+}
+.ContenidoDescripcion{
+    background: #E7E4E4;
+    padding: 10px;
+    border-radius: 5px;
+}
+

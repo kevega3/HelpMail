@@ -1,0 +1,278 @@
+/* check */
+.check{
+    position: relative;
+    width: 50px;
+    
+}
+.plantillaTabla{
+    padding-bottom: 10px;
+}
+.check:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #333;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+.check:after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 25px;
+    box-sizing: border-box;
+    
+}
+.check:checked:after{
+    left: 25px;
+    border: 2px solid #0082CA;
+    
+}
+.check:checked:before{
+    background: #0082CA;
+    
+}
+
+.TitulosCorreo{
+    font-weight: bold;
+    color: #0082CA;
+}
+
+.colortitulos{
+    font-weight: bold;
+    color: #0082CA;
+}
+.ContenedorBotonesSi{
+	display: none;
+}
+.linear{
+	 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+.PreguntaSi{
+    padding-right: 50px;
+}
+
+.TitleSoli{
+    padding: 10px;
+    display: inline-flex;
+}
+.TitleSoli img{
+    
+    padding-bottom: 10px;
+}
+.TitleSoli h1{
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+.borTabla{
+    border: 3px solid #E4E3E3;
+    margin: 0px 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ContendorSolicitud{
+    margin: 10px 25px;
+}
+
+.contenedorBody{
+    border: 3px solid #E4E3E3;
+    border-radius: 20px;
+    padding: 20px;
+}
+.ContenedorSolicitar{
+   padding-top: 40px;
+}
+.btnSolicitar{
+    width: 100%;
+    height: 40px;
+    background: #76C35E;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.3s;
+}  
+.btnSolicitar:hover{ 
+    background: #43852f;
+    color: rgb(233, 230, 230);
+} 
+.btnES{
+    display: none;
+}
+.vista{
+    display: block;
+}
+
+
+
+
+
+/*  */
+/* botones input    */
+
+.formulario__label {
+	display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+    color: #4C8CFD;
+}
+
+.formulario__grupo-input {
+	position: relative;
+}
+
+.formulario__input {
+	width: 100%;
+	background: rgb(231, 228, 228);
+	border: 3px solid transparent;
+	border-radius: 3px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+.formulario__validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.formulario__checkbox {
+	margin-right: 10px;
+}
+
+.formulario__grupo-terminos, 
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+	grid-column: span 2;
+}
+
+.formulario__mensaje {
+	height: 45px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+.formulario__mensaje p {
+	margin: 0;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formulario__btn {
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: #000;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+
+.formulario__btn:hover {
+	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+
+.formulario__mensaje-exito {
+	font-size: 14px;
+	color: #119200;
+	display: none;
+}
+
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #d31818;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #d31818;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #d31818;
+}
+
+.Comentario{
+	font-weight: bold;
+	background: #c2c2c2;
+	border: solid 1px #c2c2c2;
+	color:black;
+	padding: 0px 4px 0px 4px;
+	border-radius: 100%;
+	text-decoration: none;
+	transition: 0.2s;
+  }
+  .Comentario:hover{
+	background: #8d8c8c;
+	border: solid 1px #8d8c8c;
+	color:black;
+  }

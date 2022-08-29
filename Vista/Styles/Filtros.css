@@ -1,0 +1,109 @@
+
+.form-check{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.check{
+    position: relative;
+    width: 50px;
+    
+}
+.check:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #333;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+.check:after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 25px;
+    box-sizing: border-box;
+    
+}
+.check:checked:after{
+    left: 25px;
+    border: 2px solid #0082CA;
+    
+}
+.check:checked:before{
+    background: #0082CA;
+    
+}
+.VerBtons{
+    display: none;
+}
+
+.eliminadiv{
+    
+}
+
+
+.check-none{
+    display: none;
+}
+
+.check-active{
+    position: relative;
+    width: 50px;
+    
+}
+.check-active:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background: #333;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+.check-active:after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.582);
+    border: 2px solid #333;
+    border-radius: 25px;
+    box-sizing: border-box;
+    
+}
+.check-active:checked:after{
+    left: 25px;
+    border: 2px solid #065c8a93;
+    
+}
+.check-active:checked:before{
+    background: #065c8ae8;
+    
+}
+
+
+
+
+/* FILTROS VISTA*/
+.EPS {
+    display: none;
+}
+.IPS {
+    display: none;
+}
+.CAC{
+    display: none;
+}
+.PPUBLICA {
+    display: none;
+}
+
+.vista{
+    display: block;
+}
+
+/*  */

@@ -1,0 +1,27 @@
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+html{
+    box-sizing: border-box;
+    
+}
+.MiniContenedor{
+    padding: 2% 2%;
+    border: 2px solid #e4e3e3;
+    border-radius: 30px;
+    margin: 3% 3%;
+}
+
+.Titles{
+    color: #0082CA;
+    font-weight: bold;
+}
+
+.ContenedorSubFilters{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

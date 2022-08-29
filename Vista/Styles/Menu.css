@@ -1,0 +1,94 @@
+.span{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 30px;
+}
+.bgMenu{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#001d8a+0,0097ce+100 */
+background: #001d8a; /* Old browsers */
+background: -moz-linear-gradient(left,  #001d8a 0%, #0097ce 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #001d8a 0%,#0097ce 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #001d8a 0%,#0097ce 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d8a', endColorstr='#0097ce',GradientType=1 ); /* IE6-9 */
+
+}
+.Navegar{
+    border: 1px solid none;
+    margin: 0px 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display:  grid;
+    width: 100%;
+}
+.active{
+    text-decoration: none;
+    background: #f830a8;
+    color: white;
+    padding: 13px;
+    
+}
+.active:hover{
+    color: white;
+}
+
+
+@media only screen and (max-width: 5000px) and (min-width: 992px)  {
+    .inputRe {
+        padding-left: 2px;
+        margin: 0px 5px;
+        border-radius: 100%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        
+    }
+    .inputReCol{
+        background: #d8d6d6a1;
+        
+    }
+    .inputReCol:hover{
+        background: #a7a5a5a1; 
+    }
+}
+@media only screen and (max-width: 991px) and (min-width: 1px)  {
+    .inputRe {
+       
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: 0.2s;
+    }
+    .inputReCol{
+        background: none;
+        
+    }
+    .inputRe:hover{
+        color: #636363;
+    }
+}
+
+.inputRe{
+    transition: 0.2s;
+    color: white;
+    border: none;
+}
+
+.BtnCerrar{
+    border:none;
+    background: none;
+}
+.Desplegable:hover{
+   background: blue;
+}
+.menuicons{
+    display: -webkit-box;
+}
+.menuicons h2{
+    padding-left: 10px;
+    padding-top: 3px;
+}
+.menuicons img{
+padding-top: 6px;
+}
