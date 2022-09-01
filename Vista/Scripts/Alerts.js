@@ -12,9 +12,9 @@ function Delete(idEliminar) {
 
   }).then((result) => {
     if (result.isConfirmed) {
-      $.post('../../Modelo/Eliminar.php',{
+      $.post('../../Modelo/Eliminar.php', {
         borrar: borrar
-      },function (data, status){
+      }, function (data, status) {
         get_users();
         Swal.fire(
           'Eliminado!',
@@ -24,10 +24,10 @@ function Delete(idEliminar) {
       }
       )
 
-      }
-      // window.location = "../../Modelo/Eliminar.php?borrar=" + borrar + "&IdUser=" + idUser;
-
     }
+    // window.location = "../../Modelo/Eliminar.php?borrar=" + borrar + "&IdUser=" + idUser;
+
+  }
   );
 }
 
@@ -38,9 +38,9 @@ function Edit(id) {
     id: id
   },
     function (data, status) {
-      
+
       var user = JSON.parse(data);
-      
+
       $("#Nombre").val(user.Nombre);
       $("#Apellido").val(user.Apellido);
       $("#IdEntidad").val(user.IdEntidad);
@@ -78,7 +78,6 @@ function UpdateUserDetails() {
       var IdEntidad = $("#IdEntidad").val();
       var Correo = $("#Correo").val();
       var IdOrg = $("#IdOrg").val();
-
       var IdActividad = $("#IdActividad").val();
       var IdEnRenal = $("#IdEnRenal").val();
       var IdEpatitisC = $("#IdEpatitisC").val();
@@ -88,39 +87,51 @@ function UpdateUserDetails() {
       var IdCordinacion = $("#IdCordinacion").val();
       // get hidden field value
       var id = $("#hidden_user_id").val();
+      if (Nombre == '' || Apellido == '' || Correo == '') {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'LLene todos los campos',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
 
-      // Update the details by requesting to the server using ajax
-      $.post("../../Modelo/Actualizar.php", {
-        id: id,
-        Nombre: Nombre,
-        Apellido: Apellido,
-        IdEntidad: IdEntidad,
-        Correo: Correo,
-        IdOrg: IdOrg,
-        IdActividad: IdActividad,
-        IdEnRenal: IdEnRenal,
+        $.post("../../Modelo/Actualizar.php", {
+          id: id,
+          Nombre: Nombre,
+          Apellido: Apellido,
+          IdEntidad: IdEntidad,
+          Correo: Correo,
+          IdOrg: IdOrg,
+          IdActividad: IdActividad,
+          IdEnRenal: IdEnRenal,
 
-        IdEpatitisC: IdEpatitisC,
-        IdHemofilia: IdHemofilia,
-        IdArtritis: IdArtritis,
-        IdVH: IdVH,
-        IdCordinacion: IdCordinacion
-      },
-        function (data, status) {
-          // hide modal popup
-          $("#update_user_modal").modal("hide");
-          // reload Users by using readRecords();
+          IdEpatitisC: IdEpatitisC,
+          IdHemofilia: IdHemofilia,
+          IdArtritis: IdArtritis,
+          IdVH: IdVH,
+          IdCordinacion: IdCordinacion
+        },
+          function (data, status) {
+            $("#update_user_modal").modal("hide");
+            get_users();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Usuario Editado',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        );
 
-          get_users();
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Usuario Editado',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }
-      );
+
+
+
+      }
+
+
 
 
     }
@@ -133,14 +144,14 @@ function UpdateUserDetails() {
 
 }
 
-function CrearSolicitud(){
+function CrearSolicitud() {
   console.clear();
   var Test = quill.root.innerHTML;
   var FechaEnvio = $("#FechaEnvio").val();
   document.getElementById("test").value = Test;
   var control = true;
   var arr = $(".validar");
-  
+
   if (arr.length > 0) {
     for (i = 0; i < arr.length; i++) {
       if (arr[i].value === '' || arr[i].value === null || Test == "<p><br></p>") {
@@ -150,41 +161,42 @@ function CrearSolicitud(){
           title: 'Debes llenar todo el formulario',
           text: 'No podemos seguir si no llenas todos los campos',
         })
-          control = false;
-          break;
+        control = false;
+        break;
       }
     }
-}
-if(control){
-  var id = $("#idUser").val();
-  var ContenidoCorreo = $("#ContenidoCorreo").val();
-  var FechaEnvio = $("#FechaEnvio").val();
-  var IdCorreos = $("#IdCorreos").val();
-  var Number = $("#Number").val();
-  var Asunto = $("#Asunto").val();
-  let loader = document.querySelector(".loader");
-  loader.classList.add("active");
-  $.post("../../../Modelo/CrearSolicitud.php", {
-    Test:Test,
-    id:id,
-    ContenidoCorreo : ContenidoCorreo,
-    FechaEnvio : FechaEnvio,
-    IdCorreos : IdCorreos,
-    Number:Number,
-    Asunto:Asunto},
-    function(data, status){
-      loader.classList.remove("active");
-      Swal.fire({ 
-        
-        position: 'center',
-        icon: 'success',
-        title: 'Solicitud Creada',
-        showConfirmButton: false,
-        timer: 1500
-      });
-      setTimeout("window.location='../Solicitudes.php'", 1500);
+  }
+  if (control) {
+    var id = $("#idUser").val();
+    var ContenidoCorreo = $("#ContenidoCorreo").val();
+    var FechaEnvio = $("#FechaEnvio").val();
+    var IdCorreos = $("#IdCorreos").val();
+    var Number = $("#Number").val();
+    var Asunto = $("#Asunto").val();
+    let loader = document.querySelector(".loader");
+    loader.classList.add("active");
+    $.post("../../../Modelo/CrearSolicitud.php", {
+      Test: Test,
+      id: id,
+      ContenidoCorreo: ContenidoCorreo,
+      FechaEnvio: FechaEnvio,
+      IdCorreos: IdCorreos,
+      Number: Number,
+      Asunto: Asunto
+    },
+      function (data, status) {
+        loader.classList.remove("active");
+        Swal.fire({
+
+          position: 'center',
+          icon: 'success',
+          title: 'Solicitud Creada',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout("window.location='../Solicitudes.php'", 1500);
       })
-    }
+  }
 }
 
 function CrearCorreo() {
@@ -199,125 +211,127 @@ function CrearCorreo() {
   var EHemofiliasAD = $("#EHemofiliasAD").val();
   var EArtritissAD = $("#EArtritissAD").val();
   var VHsAD = $("#VHsAD").val();
-  var CancersAD = $("#CancersAD").val(); 
+  var CancersAD = $("#CancersAD").val();
   var CoordinacionsAD = $("#CoordinacionsAD").val();
-  
-
-if(controlVal){
-  $.post("../../Modelo/Agregar.php", {
-    NombresAD: NombresAD,
-    ApellidosAD: ApellidosAD,
-    EntidadsAD: EntidadsAD,
-    OrganizacionsAD: OrganizacionsAD,
-    TipoActividadsAD: TipoActividadsAD,
-    CorreosAD: CorreosAD,
-    ERenalsAD: ERenalsAD,
-    EpatitissAD: EpatitissAD,
-    EHemofiliasAD: EHemofiliasAD,
-    EArtritissAD: EArtritissAD,
-    VHsAD: VHsAD,
-    CancersAD: CancersAD,
-    CoordinacionsAD: CoordinacionsAD},
-    function(data, status){
-      
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Usuario Creado',
-        showConfirmButton: false,
-        timer: 1500
-      });
-      $("#addMail").modal("hide");
-      get_users();
-      $("#NombresAD").val("");
-      $("#ApellidosAD").val("");
-      $("#EntidadsAD").val("");
-      $("#OrganizacionsAD").val("");
-      $("#TipoActividadsAD").val("");
-      $("#CorreosAD").val("");
-      $("#ERenalsAD").val("");
-      $("#EpatitissAD").val("");
-      $("#EHemofiliasAD").val("");
-      $("#EArtritissAD").val("");
-      $("#VHsAD").val("");
-      $("#CancersAD").val("");
-      $("#CoordinacionsAD").val("");
-    })
-  }
-  }
 
 
-  function validarEFE(){
-    // var NombresAD = $("#NombresAD").val();
-    var control = true;
-    if( $("#NombresAD").val() === '' ||  $("#ApellidosAD").val() === ''|| $("#CorreosAD").val() === '' || $("#EntidadsAD").val() == null  ){
-      Swal.fire({
-        icon: 'error',
-        title: 'Debes llenar todo el formulario',
-        text: 'No podemos seguir si no llenas todos los campos',
+  if (controlVal) {
+    $.post("../../Modelo/Agregar.php", {
+      NombresAD: NombresAD,
+      ApellidosAD: ApellidosAD,
+      EntidadsAD: EntidadsAD,
+      OrganizacionsAD: OrganizacionsAD,
+      TipoActividadsAD: TipoActividadsAD,
+      CorreosAD: CorreosAD,
+      ERenalsAD: ERenalsAD,
+      EpatitissAD: EpatitissAD,
+      EHemofiliasAD: EHemofiliasAD,
+      EArtritissAD: EArtritissAD,
+      VHsAD: VHsAD,
+      CancersAD: CancersAD,
+      CoordinacionsAD: CoordinacionsAD
+    },
+      function (data, status) {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario Creado',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        $("#addMail").modal("hide");
+        get_users();
+        $("#NombresAD").val("");
+        $("#ApellidosAD").val("");
+        $("#EntidadsAD").val("");
+        $("#OrganizacionsAD").val("");
+        $("#TipoActividadsAD").val("");
+        $("#CorreosAD").val("");
+        $("#ERenalsAD").val("");
+        $("#EpatitissAD").val("");
+        $("#EHemofiliasAD").val("");
+        $("#EArtritissAD").val("");
+        $("#VHsAD").val("");
+        $("#CancersAD").val("");
+        $("#CoordinacionsAD").val("");
       })
-      control  = false;
-    }
-    if(control){
-      var NombresAD = $("#NombresAD").val();
-      var ApellidosAD = $("#ApellidosAD").val();
-      var EntidadsAD = $("#EntidadsAD").val();
-      var OrganizacionsAD = $("#OrganizacionsAD").val();
-      var TipoActividadsAD = $("#TipoActividadsAD").val();
-      var CorreosAD = $("#CorreosAD").val();
-      var ERenalsAD = $("#ERenalsAD").val();
-      var EpatitissAD = $("#EpatitissAD").val();
-      var EHemofiliasAD = $("#EHemofiliasAD").val();
-      var EArtritissAD = $("#EArtritissAD").val();
-      var VHsAD = $("#VHsAD").val();
-      var CancersAD = $("#CancersAD").val(); 
-      var CoordinacionsAD = $("#CoordinacionsAD").val();
+  }
+}
 
-      $.post("../../Modelo/Agregar.php", {
-        NombresAD: NombresAD,
-        ApellidosAD: ApellidosAD,
-        EntidadsAD: EntidadsAD,
-        OrganizacionsAD: OrganizacionsAD,
-        TipoActividadsAD: TipoActividadsAD,
-        CorreosAD: CorreosAD,
-        ERenalsAD: ERenalsAD,
-        EpatitissAD: EpatitissAD,
-        EHemofiliasAD: EHemofiliasAD,
-        EArtritissAD: EArtritissAD,
-        VHsAD: VHsAD,
-        CancersAD: CancersAD,
-        CoordinacionsAD: CoordinacionsAD},
-        function(data, status){
-          
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Usuario Creado',
-            showConfirmButton: false,
-            timer: 1500
-          });
-          $("#addMail").modal("hide");
-          get_users();
-          $("#NombresAD").val("");
-          $("#ApellidosAD").val("");
-          $("#EntidadsAD").val("");
-          $("#OrganizacionsAD").val("");
-          $("#TipoActividadsAD").val("");
-          $("#CorreosAD").val("");
-          $("#ERenalsAD").val("");
-          $("#EpatitissAD").val("");
-          $("#EHemofiliasAD").val("");
-          $("#EArtritissAD").val("");
-          $("#VHsAD").val("");
-          $("#CancersAD").val("");
-          $("#CoordinacionsAD").val("");
-        })
 
-    }
+function validarEFE() {
+  // var NombresAD = $("#NombresAD").val();
+  var control = true;
+  if ($("#NombresAD").val() === '' || $("#ApellidosAD").val() === '' || $("#CorreosAD").val() === '' || $("#EntidadsAD").val() == null) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Debes llenar todo el formulario',
+      text: 'No podemos seguir si no llenas todos los campos',
+    })
+    control = false;
+  }
+  if (control) {
+    var NombresAD = $("#NombresAD").val();
+    var ApellidosAD = $("#ApellidosAD").val();
+    var EntidadsAD = $("#EntidadsAD").val();
+    var OrganizacionsAD = $("#OrganizacionsAD").val();
+    var TipoActividadsAD = $("#TipoActividadsAD").val();
+    var CorreosAD = $("#CorreosAD").val();
+    var ERenalsAD = $("#ERenalsAD").val();
+    var EpatitissAD = $("#EpatitissAD").val();
+    var EHemofiliasAD = $("#EHemofiliasAD").val();
+    var EArtritissAD = $("#EArtritissAD").val();
+    var VHsAD = $("#VHsAD").val();
+    var CancersAD = $("#CancersAD").val();
+    var CoordinacionsAD = $("#CoordinacionsAD").val();
+
+    $.post("../../Modelo/Agregar.php", {
+      NombresAD: NombresAD,
+      ApellidosAD: ApellidosAD,
+      EntidadsAD: EntidadsAD,
+      OrganizacionsAD: OrganizacionsAD,
+      TipoActividadsAD: TipoActividadsAD,
+      CorreosAD: CorreosAD,
+      ERenalsAD: ERenalsAD,
+      EpatitissAD: EpatitissAD,
+      EHemofiliasAD: EHemofiliasAD,
+      EArtritissAD: EArtritissAD,
+      VHsAD: VHsAD,
+      CancersAD: CancersAD,
+      CoordinacionsAD: CoordinacionsAD
+    },
+      function (data, status) {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario Creado',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        $("#addMail").modal("hide");
+        get_users();
+        $("#NombresAD").val("");
+        $("#ApellidosAD").val("");
+        $("#EntidadsAD").val("");
+        $("#OrganizacionsAD").val("");
+        $("#TipoActividadsAD").val("");
+        $("#CorreosAD").val("");
+        $("#ERenalsAD").val("");
+        $("#EpatitissAD").val("");
+        $("#EHemofiliasAD").val("");
+        $("#EArtritissAD").val("");
+        $("#VHsAD").val("");
+        $("#CancersAD").val("");
+        $("#CoordinacionsAD").val("");
+      })
 
   }
 
-function Solicitud(){
+}
+
+function Solicitud() {
   var Number = $("#Number").val();
   console.log(Number);
 }
@@ -330,7 +344,7 @@ function Solicitud(){
 
 function BtnNo() {
   if ($('#si').prop('checked')) {
-      $('.btnES').addClass("vista");
+    $('.btnES').addClass("vista");
 
   }
   else {
@@ -338,23 +352,23 @@ function BtnNo() {
   }
 }
 
-function botonesSi(){
-  if ($('#AceptoPlantilla').prop('checked') ||$('#AceptoPlantillas').prop('checked') || $('#AceptoPlantillasS').prop('checked')  ) {
+function botonesSi() {
+  if ($('#AceptoPlantilla').prop('checked') || $('#AceptoPlantillas').prop('checked') || $('#AceptoPlantillasS').prop('checked')) {
     $('.ContenedorBotonesSi').addClass("vista");
-}
-else {
+  }
+  else {
     $('.ContenedorBotonesSi').removeClass("vista");
-}
+  }
 }
 
 
-function BtnSi () {
+function BtnSi() {
   if ($('#No').prop('checked')) {
-      $('.btnES').removeClass("vista");
+    $('.btnES').removeClass("vista");
 
   }
   else {
-      $('.btnES').addClass("vista");
+    $('.btnES').addClass("vista");
   }
 }
 
@@ -368,7 +382,7 @@ function Exit() {
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Borrar',
+    confirmButtonText: 'Si',
 
   }).then((result) => {
     if (result.isConfirmed) {
@@ -385,19 +399,19 @@ function NegarSoli() {
   var idsoli = $("#idsoli").val();
   var correo = $("#CorreoUser").val();
   var control = true;
-  if(Test == "<p><br></p>" || Test == "" || Test == null){
+  if (Test == "<p><br></p>" || Test == "" || Test == null) {
     control = false;
 
-  }if(control){
+  } if (control) {
     let loader = document.querySelector(".loader");
     loader.classList.add("active");
     $("#Negar").modal("hide");
     $.post("../../Modelo/NegarSoli.php", {
       Test: Test,
       idsoli: idsoli,
-      correo : correo
-      },
-      function(data, status){
+      correo: correo
+    },
+      function (data, status) {
         loader.classList.remove("active");
         Swal.fire({
           position: 'center',
@@ -406,15 +420,36 @@ function NegarSoli() {
           showConfirmButton: false,
           timer: 1500
         })
+        setTimeout("window.location='Solicitudes.php'", 1500);
       })
   }
+
+
+}
+
+
+function AceptarSoli() {
+  var idsoli = $("#idsoli").val();
+  var correo = $("#CorreoUser").val();
+
+  let loader = document.querySelector(".loader");
+    loader.classList.add("active");
+  $.post("../../Modelo/AceptarSoli.php", {
+    idsoli: idsoli,
+    correo: correo
+  },
+    function (data, status) {
+      loader.classList.remove("active");
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Solicitud Aceptada',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      setTimeout("window.location='Solicitudes.php'", 1500);
+    })
   
-    
-  }
-
-
-function AceptarSoli(){
-  alert('acept');
 }
 
 // function saberEntidad(){
@@ -429,16 +464,16 @@ function AceptarSoli(){
 // }
 
 
-function saberEntidad(){
+function saberEntidad() {
   //   var saberEntidad = $("#TipoOrgaForm").val();
-//   if(saberEntidad == '3'){
-//     var Extra = " WHERE IdOrg = 11";
-//     return Extra;
-//   }else{
-//    var Extra = " ";
-//    return Extra;
-//   }
-// }
+  //   if(saberEntidad == '3'){
+  //     var Extra = " WHERE IdOrg = 11";
+  //     return Extra;
+  //   }else{
+  //    var Extra = " ";
+  //    return Extra;
+  //   }
+  // }
 }
 
 

@@ -79,7 +79,7 @@ font-family: 'Montserrat', sans-serif;">
                             <th class="text-white">Buscar</th>
                         </thead>
                         <tbody>
-                            <?php $SQL="SELECT s.IdSolicitud,s.FechaEnvio,s.FechaHoy,u.Nombres,u.Apellido,e.Descripcion FROM Solicitud s INNER JOIN UsuarioHelpMail u ON s.IdUser = u.IdUser INNER JOIN  EstadoSolicitud e ON e.IdEstado =  s.Estado WHERE s.Estado = 1";
+                            <?php $SQL="SELECT s.IdSolicitud,s.Estado,s.FechaEnvio,s.FechaHoy,u.Nombres,u.Apellido FROM Solicitud s INNER JOIN UsuarioHelpMail u ON s.IdUser = u.IdUser  WHERE s.Estado = 1";
                                 $res=sqlsrv_query($conn,$SQL);
                                 while ($row=sqlsrv_fetch_array($res)) { 
                                     ?>

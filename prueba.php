@@ -1,70 +1,38 @@
+<?php 
+include('Modelo/Correos/Mail/class.phpmailer.php');
+include('Modelo/Correos/Mail/class.smtp.php');
+//Configuration
+$mail = new PHPMailer;
+$mail->IsSMTP();
+$mail->CharSet  = 'UTF-8';
+$mail->Host     = 'localhost';
+$mail->SMTPAuth = false;
 
+//Email details
+$mail->From     = 'email@email.com'; 
+$mail->FromName = 'My email'; 
+$mail->Subject  = 'You have a new email';
+$mail->Body     = 'Hi there, You have a new message.<br>';
+$mail->AltBody  = 'Hi there, You have a new message.';
 
-<!-- ajax -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-    <?php  include('Modelo/Conn.php')?>
-
-<script>
-$(function () {
-    
-    SacarEntidaddes();
-
-});
-
-function SacarEntidaddes(){
-    $(document).ready(function(){
-    $("#EntidadsAD").on('change', function () {
-        $("#EntidadsAD option:selected").each(function () {
-            elegido=$(this).val();
-            $.post("modelos.php", { elegido: elegido }, function(data){
-                $("#OrganizacionsAD").html(data);
-            });			
-        });
-   });
-});
+//Loop through recipients
+$mail->AddStringAttachment($pdf, $filename); 
+if (!empty($attach)) {
+    $mail->AddAttachment($path, $report);    
 }
 
+foreach ($recipients as $recipient) {
+    $mail->addAddress($recipient);
 
+    if ( !$mail->Send() ) {
+        echo 'Not sent';     
+    } else {
+        echo 'Sent';
+    }
 
+    // Clear all addresses and attachments for next loop
+    $mail->clearAllRecipients();
+}
 
-
-
-</script>
-
-
-
-
-
-                            <select class="inputForm validarAD" name="EntidadsAD" id="EntidadsAD">
-                            
-                            <option class="inputForm" value="1">EPS</option>
-                            <?php $BuscarEnti="SELECT * FROM TipoEntidad";
-
-                                $res=sqlsrv_query($conn,$BuscarEnti);
-
-                                while ($row=sqlsrv_fetch_array($res)) { ?>
-                                <option class="inputForm" value="<?php echo $row['IdEntidad']?>"><?php echo $row['NombreEntidad'] ?></option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-
-
-
-                            <select class="inputForm validarAD" name="OrganizacionsAD" id="OrganizacionsAD" >
-                            <option disabled selected value="">Seleccionar</option>
-                            </select>
-
-                            <?php 
-                                $Buscaruno = "SELECT * FROM CorreosMail WHERE IdCorreo = 58"; 
-                                $res=sqlsrv_query($conn,$Buscaruno);
-
-                                while ($row=sqlsrv_fetch_array($res)) { 
-                                    echo $row['IdEntidad'];
-                                    
-                                }
-                            ?>
+$mail->clearAttachments();
+?>

@@ -14,15 +14,25 @@
       <div class="modal-body">
         <form action="" id="formulario" name="formulario">
         <!-- Grupo: Nombre -->
-        <div class="formulario__grupo" id="grupo__Nombre">
-          <label for="usuario" class="formulario__label">Nombres</label>
+        <!-- <div class="formulario__grupo" id="grupo__Nombre">
+          <label for="NombreUser" class="formulario__label">Nombres</label>
           <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="Nombre" id="Nombre"
+            <input type="text" class="formulario__input" name="NombreUser" id="NombreUser"
               placeholder="Digite el Nombre del usuario">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">En este campo tiene un minimo de 3 caracteres y no se puedes poner
             caracteres especiales</p>
+        </div> -->
+        <div class="formulario__grupo" id="grupo__NombreUser">
+          <label for="NombreUser" class="formulario__label">Nombre</label>
+          <div class="formulario__grupo-input">
+            <input type="text" class="formulario__input" name="NombreUser" id="NombreUser"
+              placeholder="Digite el Nombre del usuario">
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El Nombre tiene que ser de 4 a 16 dígitos y solo puede contener numeros,
+            letras y guion bajo.</p>
         </div>
 
 
@@ -44,8 +54,9 @@
           <div class="formulario__grupo-input">
             <select name="Rol" id="Rol" class="formulario__input" name="Rol" id="Rol">
               <option disabled selected value="">Seleccionar</option>
-              <?php ?>
-              <>
+              <option value="Administrador" >Administrador</option>
+                        <option value="Administrador BD" >Administrador BD</option>
+                        <option value="Empleado" >Empleado</option>
             </select>
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
@@ -89,7 +100,7 @@
           <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <div class="formulario__grupo formulario__grupo-btn-enviar">
             <button type="submit" class="btn btn-primary">Enviar</button>
           </div>

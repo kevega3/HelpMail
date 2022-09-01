@@ -131,7 +131,7 @@ font-family: 'Montserrat', sans-serif;">
             <div class="row">
                 <div class="col-6">
                     <label for="fecha" class="TitulosFinal ">Fecha de Envio</label>
-                    <input name="FechaEnvio" id="FechaEnvio" type="datetime-local"  class="validar" min="<?php echo $DateAndTime ?>" max="2022-08-10T16:30" >
+                    <input name="FechaEnvio" id="FechaEnvio" type="datetime-local"  class="validar" min="<?php echo $DateAndTime ?>" max="2023-08-10T16:30" >
                 </div>
                 <div class="col-1"></div>
                 <div class="col-5 pt-3">

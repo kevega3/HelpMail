@@ -16,7 +16,7 @@ if($Rol == 'Administrador' || $Rol == 'Administrador BD'){
     <link rel="stylesheet" href="../Styles/footer.css">
     <link rel="stylesheet" href="../Styles/solicitudes.css">
     <link rel="stylesheet" href="../Styles/Usuarios.css">
-    
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -50,66 +50,63 @@ font-family: 'Montserrat', sans-serif; background: ghostwhite;">
             <?php include 'menu.php' ?>
         </section>
 
-        <section class="MiniContenedor" id="Users">    
+        <section class="MiniContenedor" id="Users">
             <?php 
                 include('Accions/btnAgregarUser.php');
                 include('Accions/btnEditarUser.php');
             ?>
 
-            
+
             <div class="row pt-2">
-            <table class="table table-striped " id="example">
-                <thead class="text-white bg-primary">
-                    <tr>
-                        <th>CC</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
+                <table class="table table-striped " id="example">
+                    <thead class="text-white bg-primary">
+                        <tr>
+                            <th>CC</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
                         $SQL="SELECT * FROM UsuarioHelpMail WHERE IdUser <> '$id'";
                         $res=sqlsrv_query($conn,$SQL);
                         while ($row=sqlsrv_fetch_array($res)) { 
-                    ?>    
+                    ?>
                         <tr>
-                        <td><?php echo $row['CC']?></td>
+                            <td><?php echo $row['CC']?></td>
                             <td><?php echo $row['Nombres']?></td>
                             <td><?php echo $row['Apellido']?></td>
                             <td><?php echo $row['Correo']?></td>
                             <td><?php echo $row['Rol']?></td>
                             <td>
-                            <button class="btn btn-secondary" onclick="EditarUser(<?php echo $row['IdUser']?> )">
-                                <i class="fas fa-edit"></i>
+                                <button class="btn btn-secondary" onclick="EditarUser(<?php echo $row['IdUser']?> )">
+                                    <i class="fas fa-edit"></i>
                                 </button>
                                 <button class="btn btn-danger" onclick="EliminarUser(<?php echo $row['IdUser']?> )">
-                                <i class="fas fa-minus-circle"></i>
+                                    <i class="fas fa-minus-circle"></i>
                                 </button>
                             </td>
 
                         </tr>
-                    <?php 
+                        <?php 
                      }
                     ?>
-                    
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
             </div>
         </section>
 
 
-
+       
 
 
         <section>
             <?php include 'Include/footer.html'?>
         </section>
-
-
 
 
 
@@ -155,17 +152,17 @@ font-family: 'Montserrat', sans-serif; background: ghostwhite;">
 
     <script src="../Scripts/usuarios.js"></script>
     <script src="../Scripts/FormularioAddUser.js"></script>
-    
+
     <!-- Librerias Data Tables -->
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../Scripts/Tablas.js"></script> 
+    <script src="../Scripts/Tablas.js"></script>
     <!-- Final-->
 
-    
+
     <!-- Boostrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

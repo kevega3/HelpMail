@@ -128,19 +128,15 @@ $mail->Body = "
     <div class='bg-dark'>
       <div class='alert alert-primary'>
         <center>
-        <strong>Tenemos un problema con tu solicitud de HelpMail</strong>
+        <strong>Solicitud de HelpMail</strong>
         </center>
       </div>
 
       <div class='mensaje'>
         <div class='titulo'>
-          <h3>Solicitud paso a  Estado <span>Negado</span></h3> 
+          <h3>Solicitud paso a  Estado <span>Aceptado</span></h3> 
         </div>
         <br>
-        <div class='texto'>
-          <p>Se nego su solicitud debido a que :</p>
-          <p>{$Test}</p>
-        </div>
       </br>
       </br>
       <div class='texto'>

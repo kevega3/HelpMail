@@ -1,8 +1,7 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
-const expresiones = {
-	
+const expresiones = {	
 	NombreUser: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
 	Apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	CC: /^[0-9]{4,12}$/, // 4 a 12 digitos.
@@ -74,7 +73,6 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 	if(campos.NombreUser && campos.Apellido  && campos.CC && campos.Clave && campos.Correo && Rol==true ){
 		// e.currentTarget.submit();
-		
 		AgregarUser();
 		
 	} else {

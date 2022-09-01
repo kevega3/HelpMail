@@ -16,13 +16,11 @@ function AgregarUser() {
     }, function (data, status) {
         Swal.fire({
             icon: 'success',
-            title: 'Se Elimino correctamente',
+            title: 'Se agrego correctamente',
             showConfirmButton: false,
             timer: 1500
         });
         setTimeout("window.location='usuarios.php'", 1500);
-
-
     })
 
 }
@@ -63,22 +61,79 @@ function EditarUser(id) {
     },
         function (data, status) {
         var user = JSON.parse(data);
-        $("#Nombre").val(user.Nombre);
-        $("#Apellido").val(user.Apellido);
-        $("#IdEntidad").val(user.IdEntidad);
-        $("#Correo").val(user.Correo);
-        $("#IdOrg").val(user.IdOrg);
-        $("#IdActividad").val(user.IdActividad);
-        $("#IdEnRenal").val(user.IdEnRenal);
-        $("#Apellido").val(user.Apellido);
-        $("#IdEntidad").val(user.IdEntidad);
-        $("#IdEpatitisC").val(user.IdEpatitisC);
-        $("#IdHemofilia").val(user.IdHemofilia);
-        $("#IdArtritis").val(user.IdArtritis);
-        $("#IdVH").val(user.IdVH);
-        $("#IdCordinacion").val(user.IdCordinacion);
+        $("#NombresS").val(user.Nombres);
+        $("#ApellidoSS").val(user.Apellido);
+        $("#CCS").val(user.CC);
+        $("#Rolss").val(user.Rol);
+        $("#CorreoSS").val(user.Correo);
     }
     );
-
+    
     $("#update_user_modal").modal("show");
 }
+
+
+
+
+function guardarCambios() {
+    
+
+
+
+
+    Swal.fire({
+      title: '¿Desea modificar Este registro?',
+      text: "Si lo desea modificar no volvera a recuperar los datos",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Actualizar',
+  
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var NombresS = $("#NombresS").val();
+        var ApellidoSS = $("#ApellidoSS").val();
+        var CCS = $("#CCS").val();
+        var Rolss = $("#Rolss").val();
+        var CorreoSS = $("#CorreoSS").val();
+        var ClaveSS = $("#ClaveSS").val();
+        var id = $("#hidden_user_id").val();
+  
+        $.post("../../Modelo/ActualizarUsuario.php", {
+          id: id,
+          NombresS: NombresS,
+          ApellidoSS: ApellidoSS,
+          CCS: CCS,
+          Rolss: Rolss,
+          CorreoSS: CorreoSS,
+          ClaveSS : ClaveSS
+
+        },
+          function (data, status) {
+            // hide modal popup
+            $("#update_user_modal").modal("hide");
+            // reload Users by using readRecords();
+  
+            // get_users();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Usuario Editado',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            setTimeout("window.location='usuarios.php'", 1500);
+          }
+        );
+  
+  
+      }
+    });
+  
+  
+  
+  
+  
+  
+  }
